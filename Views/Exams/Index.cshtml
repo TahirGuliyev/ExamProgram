@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ExamProgram.Models.Exam>
+
+<h1 class="mb-4">İmtahanlar</h1>
+<a href="@Url.Action("Create", "Exams")" class="btn btn-primary mb-3">Yeni İmtahan Əlavə Et</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Dərs</th>
+            <th>Şagird</th>
+            <th>Tarix</th>
+            <th>Qiymət</th>
+            <th>Əməliyyatlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exam in Model)
+        {
+            <tr>
+                <td>@exam.Subject.SubjectName</td>
+                <td>@exam.Student.FirstName @exam.Student.LastName</td>
+                <td>@exam.ExamDate.ToShortDateString()</td>
+                <td>@exam.Grade</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Exams", new { id = exam.Id })" class="btn btn-warning btn-sm">Düzəliş</a>
+                    <a href="@Url.Action("Details", "Exams", new { id = exam.Id })" class="btn btn-info btn-sm">Detay</a>
+                    <a href="@Url.Action("Delete", "Exams", new { id = exam.Id })" class="btn btn-danger btn-sm">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

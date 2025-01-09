@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ExamProgram.Models.Subject>
+
+<h1 class="mb-4">Dərslər</h1>
+<a href="@Url.Action("Create", "Subjects")" class="btn btn-primary mb-3">Yeni Dərs Əlavə Et</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Kod</th>
+            <th>Ad</th>
+            <th>Sınıf</th>
+            <th>Müəllim</th>
+            <th>Əməliyyatlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subject in Model)
+        {
+            <tr>
+                <td>@subject.SubjectCode</td>
+                <td>@subject.SubjectName</td>
+                <td>@subject.Class</td>
+                <td>@subject.TeacherFirstName @subject.TeacherLastName</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Subjects", new { id = subject.Id })" class="btn btn-warning btn-sm">Düzəliş</a>
+                    <a href="@Url.Action("Details", "Subjects", new { id = subject.Id })" class="btn btn-info btn-sm">Detay</a>
+                    <a href="@Url.Action("Delete", "Subjects", new { id = subject.Id })" class="btn btn-danger btn-sm">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,20 @@
+﻿@model ExamProgram.Models.Exam
+
+<h1 class="mb-4">İmtahan Sil</h1>
+
+<div class="alert alert-warning">
+    <p><strong>Bu imtahanı silmək istədiyinizdən əminsinizmi?</strong></p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Dərs:</strong> @Model.Subject.SubjectName</label><br />
+    <label><strong>Şagird:</strong> @Model.Student.FirstName @Model.Student.LastName</label><br />
+    <label><strong>Tarix:</strong> @Model.ExamDate.ToShortDateString()</label><br />
+    <label><strong>Qiymət:</strong> @Model.Grade</label><br />
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a href="@Url.Action("Index", "Exams")" class="btn btn-secondary">Geri</a>
+</form>

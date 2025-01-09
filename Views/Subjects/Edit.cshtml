@@ -1,0 +1,29 @@
+﻿@model ExamProgram.Models.Subject
+
+<h1 class="mb-4">Dərsi Düzəliş Et</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label for="SubjectCode" class="form-label">Dərs Kodu:</label>
+        <input type="text" class="form-control" id="SubjectCode" asp-for="SubjectCode" required />
+    </div>
+    <div class="mb-3">
+        <label for="SubjectName" class="form-label">Dərs Adı:</label>
+        <input type="text" class="form-control" id="SubjectName" asp-for="SubjectName" required />
+    </div>
+    <div class="mb-3">
+        <label for="Class" class="form-label">Sinif:</label>
+        <input type="number" class="form-control" id="Class" asp-for="Class" required />
+    </div>
+    <div class="mb-3">
+        <label for="TeacherFirstName" class="form-label">Müəllimin Adı:</label>
+        <input type="text" class="form-control" id="TeacherFirstName" asp-for="TeacherFirstName" required />
+    </div>
+    <div class="mb-3">
+        <label for="TeacherLastName" class="form-label">Müəllimin Soyadı:</label>
+        <input type="text" class="form-control" id="TeacherLastName" asp-for="TeacherLastName" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Yadda Saxla</button>
+    <a href="@Url.Action("Index", "Subjects")" class="btn btn-secondary">Geri</a>
+</form>

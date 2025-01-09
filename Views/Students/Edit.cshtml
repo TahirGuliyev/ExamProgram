@@ -1,0 +1,21 @@
+﻿@model ExamProgram.Models.Student
+
+<h1 class="mb-4">Şagird Düzəliş Et</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label for="FirstName" class="form-label">Ad:</label>
+        <input type="text" class="form-control" id="FirstName" asp-for="FirstName" required />
+    </div>
+    <div class="mb-3">
+        <label for="LastName" class="form-label">Soyad:</label>
+        <input type="text" class="form-control" id="LastName" asp-for="LastName" required />
+    </div>
+    <div class="mb-3">
+        <label for="Class" class="form-label">Sinif:</label>
+        <input type="number" class="form-control" id="Class" asp-for="Class" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Yadda Saxla</button>
+    <a href="@Url.Action("Index", "Students")" class="btn btn-secondary">Geri</a>
+</form>

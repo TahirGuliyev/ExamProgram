@@ -1,0 +1,12 @@
+﻿@model ExamProgram.Models.Exam
+
+<h1 class="mb-4">İmtahan Ətraflı</h1>
+
+<div class="mb-3">
+    <label><strong>Dərs:</strong> @Model.Subject.SubjectName</label><br />
+    <label><strong>Şagird:</strong> @Model.Student.FirstName @Model.Student.LastName</label><br />
+    <label><strong>Tarix:</strong> @Model.ExamDate.ToShortDateString()</label><br />
+    <label><strong>Qiymət:</strong> @Model.Grade</label><br />
+</div>
+
+<a href="@Url.Action("Index", "Exams")" class="btn btn-secondary">Geri</a>

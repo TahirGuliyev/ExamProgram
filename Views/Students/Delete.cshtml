@@ -1,0 +1,19 @@
+﻿@model ExamProgram.Models.Student
+
+<h1 class="mb-4">Şagird Sil</h1>
+
+<div class="alert alert-warning">
+    <p><strong>Bu şagirdi silmək istədiyinizdən əminsinizmi?</strong></p>
+</div>
+
+<div class="mb-3">
+    <label><strong>Ad:</strong> @Model.FirstName</label><br />
+    <label><strong>Soyad:</strong> @Model.LastName</label><br />
+    <label><strong>Sinif:</strong> @Model.Class</label><br />
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a href="@Url.Action("Index", "Students")" class="btn btn-secondary">Geri</a>
+</form>

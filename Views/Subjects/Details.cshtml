@@ -1,0 +1,12 @@
+﻿@model ExamProgram.Models.Subject
+
+<h1 class="mb-4">Dərs Məlumatları</h1>
+
+<div class="mb-3">
+    <label><strong>Dərs Kodu:</strong> @Model.SubjectCode</label><br />
+    <label><strong>Dərs Adı:</strong> @Model.SubjectName</label><br />
+    <label><strong>Sinif:</strong> @Model.Class</label><br />
+    <label><strong>Müəllim:</strong> @Model.TeacherFirstName @Model.TeacherLastName</label><br />
+</div>
+
+<a href="@Url.Action("Index", "Subjects")" class="btn btn-secondary">Geri</a>

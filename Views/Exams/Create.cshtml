@@ -1,0 +1,51 @@
+﻿@model ExamProgram.Models.Exam
+
+@{
+    ViewData["Title"] = "Yeni İmtahan Əlavə Et";
+}
+
+<h1 class="mb-4">Yeni İmtahan Əlavə Et</h1>
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!-- Subject Dropdown -->
+    <div class="mb-3">
+        <label for="SubjectId" class="form-label">Dərs:</label>
+        <select class="form-control" id="SubjectId" name="SubjectId" asp-for="SubjectId" asp-items="@(ViewData["Subjects"] as SelectList)">
+            <option value="" disabled selected>Dərs seçin</option>
+        </select>
+        <span asp-validation-for="SubjectId" class="text-danger"></span>
+    </div>
+
+    <!-- Student Dropdown -->
+    <div class="mb-3">
+        <label for="StudentId" class="form-label">Şagird:</label>
+        <select class="form-control" id="StudentId" name="StudentId" asp-for="StudentId" asp-items="@(ViewData["Students"] as SelectList)">
+            <option value="" disabled selected>Şagird seçin</option>
+        </select>
+        <span asp-validation-for="StudentId" class="text-danger"></span>
+    </div>
+
+    <!-- Exam Date -->
+    <div class="mb-3">
+        <label for="ExamDate" class="form-label">Tarix:</label>
+        <input type="date" class="form-control" id="ExamDate" name="ExamDate" asp-for="ExamDate" required />
+        <span asp-validation-for="ExamDate" class="text-danger"></span>
+    </div>
+
+    <!-- Grade -->
+    <div class="mb-3">
+        <label for="Grade" class="form-label">Qiymət:</label>
+        <input type="number" class="form-control" id="Grade" name="Grade" asp-for="Grade" required />
+        <span asp-validation-for="Grade" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Əlavə Et</button>
+    <a href="@Url.Action("Index", "Exams")" class="btn btn-secondary">Geri</a>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
